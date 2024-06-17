@@ -9,7 +9,15 @@ local function tableContainsString(tbl, str)
     return false
 end
 
----@param defaults table should be defined in the same way as the settings in CC Tweaked: https://tweaked.cc/module/settings.html (Usage)
+--- Should be defined in the same way as the settings in CC Tweaked: https://tweaked.cc/module/settings.html (Usage)
+---
+--- `type` is a string of the type of `default`
+---@class defaults
+---@field description string
+---@field default any
+---@field type string
+
+---@param defaults defaults
 ---@param overrideSuffix string | nil
 function Config:init(defaults, overrideSuffix)
     -- used if a setting is not found in global settings
@@ -18,7 +26,7 @@ function Config:init(defaults, overrideSuffix)
     -- @config.lua if you run it here but since you run the Config:init()
     -- from your program the suffix will be their name
     self.suffix = overrideSuffix or debug.getinfo(2, "S").source
-
+    -- define all (default) settings if not defined
     self:define()
 end
 
