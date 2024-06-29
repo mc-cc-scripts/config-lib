@@ -52,6 +52,10 @@ end
 ---@param name string
 ---@param value string
 function Config:set(name, value)
+    if not self.defaults[name] then
+        print("Cannot configure: " .. name)
+        return
+    end
     local vtype = self.defaults[name].type
     if vtype == "boolean" then
         -- @TODO: Find a way to do this in a way that the language-server likes.
