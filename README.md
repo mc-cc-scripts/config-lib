@@ -59,6 +59,14 @@ A call to change a `protocol` configuration to `abc123` might look like this:
 program.lua config set protocol abc123
 ```
 
+## Use internally
+The same functions which you can use via the commandline, can also be used within your program.
+- `Config:set(name <string>, value <table|string|number|boolean>)`
+- `Config:get(name <string>) -> <table|string|number|boolean>`
+- `Config:list() -> <table>`
+
+_Note: Calling `list` via commandline will also internally call `get` to provide some further information. Using `Config:list()` will only return a list of names._ 
+
 
 ## Example
 Please take a look at the example program in `examples/configExample.lua`
