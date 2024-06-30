@@ -3,9 +3,14 @@ A small library for simple configuration management within your programs.
 
 # How To Use
 ## Initialise
-Require the config:
+Require the config (ideally via scm):
 ```lua
-local Config = require "../config"
+local scm = require("./scm")
+local Config = scm:load("config")
+```
+Or without scm:
+```lua
+local Config = require("config")
 ```
 
 Then you have to set default values for your program config:
